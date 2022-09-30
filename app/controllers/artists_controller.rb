@@ -17,7 +17,7 @@ class ArtistsController < ApplicationController
     if artist.save
       redirect_to root_path
     else
-      sender :search
+      render :search
     end
   end
 
