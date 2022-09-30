@@ -10,8 +10,7 @@
 | image              | string     | null: false                 |
 | name               | string     | null: false                 |
 | genre              | string     | null: false                 |
-| spotify_link       | string     | null: false                 |
-| comment            | text       | null: false                 |
+| spotify_link       | text       | null: false                 |
 | city(state)_id     | integer    | null: false                 |
 
 ### Association
