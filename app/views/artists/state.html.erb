@@ -1,0 +1,5 @@
+<h1><%=@state.state_name %>州のアーティスト</h1><br>
+<% @state_artists.each do |a| %>
+<%= image_tag a.image %>
+
+<% end %>

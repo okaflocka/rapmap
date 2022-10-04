@@ -1,14 +1,14 @@
-<%= @name %><br>
-<%= @genre %><br>
-<%= image_tag @image %><br>
-<%= link_to "Listen on Spotify", @spotify_url %><br>
+<%= @search.name %><br>
+<%= @search.genres[0] %><br>
+<%= image_tag @search.images[0]["url"] %><br>
+<%= link_to "Listen on Spotify", @search.external_urls["spotify"] %><br>
 
 <h3>地域を選択してください</h3>
 <%= form_with model:@artist, url:artists_path, method: :post, local: true do |form| %>
 <%= form.collection_select(:state_id, State.all, :id, :name, {},{class:"states"}) %>
-<%= hidden_field_tag :name, @name %>
-<%= hidden_field_tag :genre, @genre %>
-<%= hidden_field_tag :image, @image %>
-<%= hidden_field_tag :spotify_url, @spotify_url %>
+<%= hidden_field_tag :name, @search.name %>
+<%= hidden_field_tag :genre, @search.genres[0] %>
+<%= hidden_field_tag :image, @search.images[0]["url"] %>
+<%= hidden_field_tag :spotify_url, @search.external_urls["spotify"] %>
 <%= form.submit '新規投稿', name: nil %>
 <% end %>

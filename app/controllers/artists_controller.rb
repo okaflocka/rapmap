@@ -9,7 +9,6 @@ class ArtistsController < ApplicationController
     search = params[:search]
     artists = RSpotify::Artist.search(search)
     @search = artists.first
-    artist_data
   end
 
   def create
@@ -17,19 +16,20 @@ class ArtistsController < ApplicationController
     if artist.save
       redirect_to root_path
     else
-      render :search
+      @search = artist
+      render :search  ##テンプレートバグ発生
     end
+  end
+  
+  def state
+    @state_artists = Artist.stateSearch(params[:state_id])
+    @state = Map.find(params[:state_id])
   end
 
   private
-  def artist_data
-    @image = @search.images[0]["url"]
-    @name = @search.name
-    @genre = @search.genres[0]
-    @spotify_url = @search.external_urls["spotify"]
-  end
 
   def artist_params
     params.permit(:image, :name, :genre, :spotify_url, :state_id)
   end
+
 end
