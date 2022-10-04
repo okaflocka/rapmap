@@ -1,6 +1,7 @@
 # README
 
-# 機能:Spotifyから取得したアーティストと出身地を紐づけて保存するアプリケーション。
+# 機能:Spotifyから取得したアーティスト情報と、そのアーティストの出身地を紐づけて管理するアプリケーション。
+# 目的：地域ごとの音楽性の違いを一覧化し、レコメンデーションに活用。
 
 # テーブル設計
 
@@ -11,11 +12,20 @@
 | name               | string     | null: false                 |
 | genre              | string     | null: false                 |
 | spotify_link       | text       | null: false                 |
-| city(state)_id     | integer    | null: false                 |
+| state_id           | integer    | null: false                 |
 
 ### Association
+- belongs_to :state
 - belongs_to :user
 
+## mapsモデル
+| Column             | Type       | Options                     |
+| ------------------ | ---------- | --------------------------- |
+| state_name         | string     | null: false                 |
+| state_code         | string     | null: false                 |
+
+### Association
+- has_many ：artists
 
 ## users テーブル
 | Column             | Type     | Options                     |

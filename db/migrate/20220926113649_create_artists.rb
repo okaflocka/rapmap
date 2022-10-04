@@ -5,7 +5,7 @@ class CreateArtists < ActiveRecord::Migration[6.0]
       t.string :name, null: false
       t.string :genre, null: false
       t.text :spotify_url, null: false
-      t.integer :state_id, null: false
+      t.string :state_id, null: false
       t.timestamps
     end
   end
