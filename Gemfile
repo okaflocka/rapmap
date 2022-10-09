@@ -58,7 +58,3 @@ gem 'rack-cors'
 gem 'active_hash'
 gem 'jqvmap-rails', '~> 2.1', '>= 2.1.2.2'
 gem 'rspotify'
-
-gem 'net-imap'
-gem 'net-pop'
-gem 'net-smtp'
