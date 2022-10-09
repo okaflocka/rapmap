@@ -22,6 +22,8 @@ module Rapmap
       end
     end
     
+    require 'RSpotify'
+    RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_SECRET"])
 
   end
 end
