@@ -1,7 +1,5 @@
 class ArtistsController < ApplicationController
-  require 'RSpotify'
-  RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_SECRET"])
-
+  
   def index
   end
   
