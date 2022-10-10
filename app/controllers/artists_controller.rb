@@ -5,7 +5,7 @@ class ArtistsController < ApplicationController
   
   def search
     search = params[:search]
-    artists = RSpotify::Artist.search(search)
+    # artists = RSpotify::Artist.search(search)
     @search = artists.first
   end
 
