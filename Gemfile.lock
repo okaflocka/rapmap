@@ -93,10 +93,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jqvmap-rails (2.1.2.2)
       jquery-rails
-
     kgio (2.11.4)
-
-    jwt (2.5.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -139,10 +136,6 @@ GEM
     rack (2.2.4)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
-
-    rack-protection (3.0.0)
-      rack
-
     rack-proxy (0.7.4)
       rack
     rack-test (2.0.2)
@@ -260,7 +253,6 @@ DEPENDENCIES
   puma (~> 3.11)
   rack-cors
   rails (~> 6.0.0)
-
   sass-rails (~> 5)
   selenium-webdriver
   spring
