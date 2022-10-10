@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  
+
   def index
   end
   
@@ -7,6 +7,8 @@ class ArtistsController < ApplicationController
     search = params[:search]
     artists = RSpotify::Artist.search(search)
     @search = artists.first
+    url = @search.external_urls["spotify"]
+    @search_exist = Artist.where(spotify_url: url).take
   end
 
   def create
@@ -19,6 +21,23 @@ class ArtistsController < ApplicationController
     end
   end
   
+  def edit
+    @search = Artist.find(params[:id]) 
+  end
+
+  def update
+    if Artist.update(artist_params)
+      redirect_to root_path
+    end
+  end
+
+  def destroy
+    @artist = Artist.find(params[:id])
+    if @artist.destroy
+      redirect_to root_path
+    end
+  end
+
   def state
     @state_artists = Artist.stateSearch(params[:state_id])
     @state = Map.find(params[:state_id])

@@ -1,5 +1,6 @@
 <h1><%=@state.state_name %>州のアーティスト</h1><br>
-<% @state_artists.each do |a| %>
-<%= image_tag a.image %>
-
+<% @state_artists.each do |artist| %>
+<%= image_tag artist.image %><br>
+<%= link_to "地域を修正する", edit_artist_path(artist.id) %><br>
+<%= link_to "地図から削除する", artist_path(artist.id), method: :delete %><br>
 <% end %>

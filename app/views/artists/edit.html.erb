@@ -1,0 +1,13 @@
+<%= @search.name %><br>
+<%= @search.genre %><br>
+<%= image_tag @search.image %><br>
+
+<h3>地域を選択してください</h3>
+<%= form_with model:@artist, url:artist_path, method: :put, local: true do |form| %>
+<%= form.collection_select(:state_id, State.all, :id, :name, {},{class:"states"}) %>
+<%= hidden_field_tag :name, @search.name %>
+<%= hidden_field_tag :genre, @search.genre %>
+<%= hidden_field_tag :image, @search.image %>
+<%= hidden_field_tag :spotify_url, @search.spotify_url %>
+<%= form.submit '修正する', name: nil %>
+<% end %>

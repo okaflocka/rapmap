@@ -2,7 +2,7 @@
 <div id='us-map' > </div>
 
 <h3>アーティスト名で検索</h3>
-<%= form_with url: search_path, method: :get, local: true do |form| %>
+<%= form_with url: search_artists_path, method: :get, local: true do |form| %>
 <%= form.text_field :search %>
 <%= form.submit 'アーティスト名検索', name: nil %>
 <% end %>
@@ -13,7 +13,7 @@
     <title>JQVMap - World Map</title>
     <link href="../dist/jqvmap.css" media="screen" rel="stylesheet" type="text/css">
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="/dist/jquery.vmap.js"></script>
     <script type="text/javascript" src="/dist/maps/jquery.vmap.usa.js" charset="utf-8"></script>
 
