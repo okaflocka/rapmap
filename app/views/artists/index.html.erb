@@ -22,12 +22,11 @@
       jQuery('#vmap').vectorMap({ map: 'usa_en',
       onRegionClick: function(element, code, region)
       {  
-        var message = 'You clicked "'
-            + region 
-            + '" which has the code: '
-            + code.toUpperCase();
-        alert(message);
-      }
+        var url = new URL(window.location.href);
+        url.pathname = 'artists/state';
+        url.searchParams.append('code', code) ;
+        location.href = url ;
+       }
       });
     });
 
@@ -37,9 +36,3 @@
     <div id="vmap" style="width: 600px; height: 400px;"></div>
   </body>
 </html>
-
-<h3>州名で検索</h3>
-<%= form_with url: state_artists_path, method: :get, local: true do |form| %>
-<%= form.collection_select(:state_id, State.all, :id, :name, {},{class:"states"}) %>
-<%= form.submit '州名検索', name: nil %>
-<% end %>

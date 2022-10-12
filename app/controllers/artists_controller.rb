@@ -39,8 +39,8 @@ class ArtistsController < ApplicationController
   end
 
   def state
-    @state_artists = Artist.stateSearch(params[:state_id])
-    @state = Map.find(params[:state_id])
+    @state = Map.where(state_code: params[:code]).take
+    @state_artists = Artist.stateSearch(@state.id)
   end
 
   private
